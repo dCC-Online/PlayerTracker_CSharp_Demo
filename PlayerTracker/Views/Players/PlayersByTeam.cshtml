@@ -1,0 +1,32 @@
+﻿@model PlayerTracker.Models.Team
+
+@{
+    ViewData["Title"] = "PlayersByTeam";
+}
+
+<h1>@Html.DisplayFor(model => model.Name)</h1>
+
+<div>
+    <h4>Players</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var player in Model.Players)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(model => player.FirstName)</td>
+                    <td>@Html.DisplayFor(model => player.LastName)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
